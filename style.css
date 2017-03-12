@@ -1,0 +1,23 @@
+body {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  color: black;
+
+  background-color: white;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+p {
+  font-size: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+a {
+  color: gray;
+}
