@@ -18,6 +18,6 @@ socket.on("feedback", function(data) {
     var img = document.createElement("img");
     img.src = data.images[i];
     img.width = "200";
-    document.body.appendChild(img);
+    document.getElementById("images").appendChild(img);
   }
 });
