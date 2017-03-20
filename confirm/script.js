@@ -2,7 +2,8 @@
 var socket = io.connect("https://instapapas.herokuapp.com");
 
 socket.emit("confirm", {
-  secret: location.search.replace("?", "")
+  secret: location.search.replace("?", ""),
+  password: document.getElementById("password").value
 });
 
 socket.on("feedback", function(data) {
