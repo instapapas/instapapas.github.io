@@ -13,9 +13,6 @@ function send() {
   reader.readAsDataURL(file);
 
   socket.on("feedback", function(data) {
-    var img = document.createElement("img");
-    img.src = data.image;
-    img.width = "200";
-    document.getElementsByClassName("images").appendChild(img);
+    window.location = "/search?" + data.name;
   });
 }

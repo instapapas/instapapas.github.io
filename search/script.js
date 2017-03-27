@@ -5,7 +5,7 @@ function send() {
   location.search = document.getElementById("name").value;
 }
 
-var name = location.search.replace("?", "");
+var name = location.search.substring(1);
 if (name) {
   socket.emit("search", {
     name: name
@@ -20,4 +20,8 @@ socket.on("feedback", function(data) {
     img.width = "200";
     document.getElementById("images").appendChild(img);
   }
+  if (data.images.length == 0)
+    document.getElementById("status").innerHTML = "No photos with that name available";
+  else
+    document.getElementById("status").remove();
 });
