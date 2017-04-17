@@ -5,9 +5,7 @@ function submit() {
   socket.emit("confirm", {
     secret: location.search.replace("?", ""),
     password: document.getElementById("password").value
-  });
-
-  socket.on("feedback", function(data) {
-    document.getElementById("result").innerHTML = data.fb;
+  }, fb => {
+    document.getElementById("result").innerHTML = fb;
   });
 }

@@ -2,17 +2,15 @@
 var socket = io.connect("https://instapapas.herokuapp.com");
 
 function send() {
-  var file = document.querySelector('input[type=file]').files[0];
-  var reader = new FileReader();
+  const file = document.querySelector("input[type=file]").files[0];
+  const reader = new FileReader();
   reader.onloadend = function() {
-    socket.emit("push", {
+    socket.emit("upload", {
       name: document.getElementById("name").value,
       image: reader.result
+    }, fb => {
+      window.location = "/search?" + fb;
     });
   }
   reader.readAsDataURL(file);
-
-  socket.on("feedback", function(data) {
-    window.location = "/search?" + data.name;
-  });
 }

@@ -5,23 +5,22 @@ function send() {
   location.search = document.getElementById("name").value;
 }
 
-var name = location.search.substring(1);
-if (name) {
-  socket.emit("search", {
-    name: name
-  });
-}
-
-socket.on("feedback", function(data) {
-  console.log(data);
-  for (var i in data.images) {
-    var img = document.createElement("img");
-    img.src = data.images[i];
-    img.width = "200";
-    document.getElementById("images").appendChild(img);
+function start() {
+  var name = location.search.substring(1);
+  if (name) {
+    document.getElementById("status").innerHTML = "Loading...";
+    socket.emit("search", name, fb => {
+      for (var i in fb) {
+        var img = document.createElement("img");
+        img.src = fb[i];
+        img.width = "200";
+        document.getElementById("images").appendChild(img);
+      }
+      if (fb.length === 0) {
+        document.getElementById("status").innerHTML = "No photos with that name available";
+      } else {
+        document.getElementById("status").remove();
+      }
+    });
   }
-  if (data.images.length == 0)
-    document.getElementById("status").innerHTML = "No photos with that name available";
-  else
-    document.getElementById("status").remove();
-});
+}

@@ -10,16 +10,16 @@
     <!-- CSS section -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" >
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/propeller.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet"/>
-    <link href="../favicon.ico" rel="icon" type="image/ico">
+    <link href="/css/propeller.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="/favicon.ico" rel="icon" type="image/ico">
 
     <!-- JS section -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
-    <script type="text/javascript" src="../js/scriptSearch.js"></script>
-    <script type="text/javascript" src="../js/analytics.js"></script>
+    <script type="text/javascript" src="/js/scriptSearch.js"></script>
+    <script type="text/javascript" src="/js/analytics.js"></script>
   </head>
-  <body>
+  <body onload="start()">
     <!-- Form section -->
     <center>
       <div style="width: 400px">
@@ -36,7 +36,7 @@
 
     <!-- Result section -->
     <div id="images">
-      <p id="status">Loading...</p>
+      <p id="status"></p>
     </div>
 
     <!-- GitHub corner -->
