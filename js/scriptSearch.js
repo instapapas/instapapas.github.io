@@ -12,9 +12,9 @@ function start() {
     socket.emit("search", name, fb => {
       for (var i in fb) {
         var img = document.createElement("img");
-        img.src = fb[i];
+        img.src = fb[i].image;
         img.width = "200";
-        document.getElementById("images").appendChild(img.image);
+        document.getElementById("images").appendChild(img);
       }
       if (fb.length === 0) {
         document.getElementById("status").innerHTML = "No photos with that name available";
