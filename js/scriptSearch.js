@@ -1,12 +1,12 @@
-//var socket = io.connect("http://localhost:3000");
-var socket = io.connect("https://instapapas.herokuapp.com");
+//const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://instapapas.herokuapp.com");
 
 function send() {
   location.search = document.getElementById("name").value;
 }
 
 function start() {
-  var name = location.search.substring(1);
+  const name = location.search.substring(1).replace("%20", " ");
   if (name) {
     document.getElementById("status").innerHTML = "Loading...";
     socket.emit("search", name, fb => {

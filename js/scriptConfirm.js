@@ -1,5 +1,5 @@
-//var socket = io.connect("http://localhost:3000");
-var socket = io.connect("https://instapapas.herokuapp.com");
+//const socket = io.connect("http://localhost:3000");
+const socket = io.connect("https://instapapas.herokuapp.com");
 
 function submit() {
   socket.emit("confirm", {
