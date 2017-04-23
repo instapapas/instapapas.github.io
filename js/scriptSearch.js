@@ -14,7 +14,7 @@ function start() {
         var img = document.createElement("img");
         img.src = fb[i];
         img.width = "200";
-        document.getElementById("images").appendChild(img);
+        document.getElementById("images").appendChild(img.image);
       }
       if (fb.length === 0) {
         document.getElementById("status").innerHTML = "No photos with that name available";
