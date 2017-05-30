@@ -6,7 +6,7 @@ function send() {
 }
 
 function start() {
-  const name = location.search.substring(1).replace("%20", " ");
+  const name = location.search.substring(1).replace(/%20/g, " ");
   const status = document.getElementById("status");
   if (name) {
     status.innerHTML = "Loading...";
@@ -32,7 +32,6 @@ function start() {
         card.appendChild(image);
         card.appendChild(sect);
         col.appendChild(card);
-        console.log(col);
         document.getElementById("images").appendChild(col);
       }
       if (fb.length === 0) {

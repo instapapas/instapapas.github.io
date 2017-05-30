@@ -3,13 +3,12 @@ const socket = io.connect("https://instapapas.herokuapp.com");
 
 function send() {
   const input = document.querySelector("input[type=file]").files[0];
-  console.log(input);
   socket.emit("upload", {
     name: document.getElementById("name").value,
     file: {
       file: input,
       name: input.name,
-      type: input.type
+      extension: input.type.substr(input.type.lastIndexOf("/") + 1)
     }
   }, fb => {
     window.location = "/search?" + fb;
