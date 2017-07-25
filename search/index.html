@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-default.min.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
-    <script type="text/javascript" src="/js/search.js"></script>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
   </head>
-  <body onload="start()">
+
+  <body>
     <div class="container">
       <div class="row">
         <div class="col-sm-4 col-sm-offset-4 col-md-6 col-md-offset-3 input-group fluid">
@@ -20,10 +21,22 @@
         </div>
       </div>
 
-      <div class="row" id="images"></div>
+      <div class="row" id="images">
+        <div class="col-sm-4 col-md-3 col-lg-2" v-for="img in images">
+          <div class="card fluid">
+            <img class="section media" :src="img.url">
+            <div class="section">
+              <p>{{ img.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <span class="toast hidden" id="status"></span>
+
+    <script type="text/javascript" src="/js/search.js"></script>
     <script type="text/javascript" src="/js/analytics.js"></script>
   </body>
+
 </html>
