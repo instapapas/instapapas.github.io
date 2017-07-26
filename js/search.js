@@ -12,7 +12,7 @@ const images = new Vue ({
   }
 });
 
-const name = decodeURIComponent(location.search.substring(1));
+const name = encodeURIComponent(decodeURIComponent(location.search.substring(1)));
 const status = document.getElementById('status');
 if (name) {
   status.innerHTML = 'Loading...';
@@ -21,7 +21,10 @@ if (name) {
 
     if (fb.length === 0) {
       status.innerHTML = 'No photos with that name available';
-      status.class = 'toast'
+    } else {
+      status.remove();
     }
   });
+} else {
+  status.remove();
 }
